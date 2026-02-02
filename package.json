@@ -4,6 +4,7 @@
   "description": "Automatically disables 'Screen Reader Optimized' mode when it is turned on by external tools like Wispr Flow.",
   "version": "0.1.0",
   "publisher": "MaximMazurok",
+  "icon": "icon.png",
   "license": "MIT",
   "engines": {
     "vscode": "^1.90.0"
