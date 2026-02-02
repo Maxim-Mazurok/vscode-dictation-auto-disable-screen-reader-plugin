@@ -1,0 +1,66 @@
+{
+  "name": "vscode-dictation-auto-disable-screen-reader",
+  "displayName": "Auto Disable Screen Reader",
+  "description": "Automatically disables 'Screen Reader Optimized' mode when it is turned on by external tools like Wispr Flow.",
+  "version": "0.1.0",
+  "publisher": "maxim-mazurok",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxim-mazurok/vscode-dictation-auto-disable-screen-reader.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Auto Disable Screen Reader",
+      "properties": {
+        "autoDisableScreenReader.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the auto-disabling logic."
+        },
+        "autoDisableScreenReader.pollingInterval": {
+          "type": "number",
+          "default": 500,
+          "description": "Interval in milliseconds to check and disable screen reader mode (if polling is enabled)."
+        },
+        "autoDisableScreenReader.enablePolling": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable polling as a fallback if event listeners are not enough."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "glob": "^13.0.0",
+    "mocha": "^10.4.0",
+    "typescript": "^5.4.5",
+    "@vscode/vsce": "^3.2.1"
+  }
+}
